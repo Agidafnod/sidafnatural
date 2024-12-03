@@ -1,0 +1,74 @@
+# Functioning Message Box
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Box</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .message-box {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(78, 2, 2, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        .message-box h2 {
+            margin-bottom: 20px;
+        }
+        .message-box input, .message-box textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .message-box button {
+            background: #5cb85c;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .message-box button:hover {
+            background: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="message-box">
+    <h2>Send Us a Message</h2>
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+       <button> <li><a href='index.html'>Home</a></li></button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        const mailtoLink = `mailto:acxtag@gmail.com?subject=Message from ${name}&body=${encodeURIComponent(message)}%0D%0AFrom: ${email}`;
+        
+        window.location.href = mailtoLink;
+    });
+</script>
+
+</body>
+</html>
